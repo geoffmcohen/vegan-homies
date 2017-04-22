@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VeganHomies</title>
+    <title>Vegan Homies</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller.controller_name %>">
+  	<div id="banner">
+  		<h1>Vegan Homies!!!</h1>
+  	</div>
+  	<div id="columns">
+  		<div id="side" >
+  			<ul>
+  				<li><a href="http://...">Home</a></li>
+  			</ul>
+  		</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
   </body>
 </html>
