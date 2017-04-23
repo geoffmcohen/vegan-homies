@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  display_name: MyString
+  about: MyString
+  looking_to_meet: MyString
+  active: false
+  user: one
+
+two:
+  display_name: MyString
+  about: MyString
+  looking_to_meet: MyString
+  active: false
+  user: two
