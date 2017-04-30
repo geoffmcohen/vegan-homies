@@ -21,6 +21,16 @@
  	padding: 10px;
  	color: #282;
  	border-bottom: 2px solid;
+ 	
+ 	overflow: hidden;
+ 	
+ 	#logo{
+ 		float: left;
+ 	}
+ 	
+ 	#login-logout-signup{
+ 		float: right; 		
+ 	}
  }
  
  #columns {
