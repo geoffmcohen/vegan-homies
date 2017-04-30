@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 		get 'login' => :new
 		post 'login' => :create
 		delete 'logout' => :destroy
+		get 'logout' => :destroy
 	end
   
+	controller :users do
+		get 'signup' => :new
+  end
   
   root 'welcome#index'
   

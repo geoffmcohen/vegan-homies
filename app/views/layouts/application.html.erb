@@ -10,7 +10,17 @@
 
   <body class="<%= controller.controller_name %>">
   	<div id="banner">
-  		<h1>Vegan Homies!!!</h1>
+  		<div id="logo">
+  			<h1>Vegan Homies!!!</h1>
+  		</div>
+  		<div id="login-logout-signup">
+				<% if user = User.find_by(id: session[:user_id]) %>
+					Hello <%= user.name %> <%= link_to "Log Out", logout_path, method: "delete" %> 
+				<% else %>
+					Not signed in <%= link_to "Log In", login_path %> / <%= link_to "Sign Up", signup_path %>
+				<% end %> 			
+  		</div>
+  		
   	</div>
   	<div id="columns">
   		<div id="side" >
