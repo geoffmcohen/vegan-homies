@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+	get 'welcome/index'
+	
+	controller :sessions do
+		get 'login' => :new
+		post 'login' => :create
+		delete 'logout' => :destroy
+	end
+  
   
   root 'welcome#index'
   
