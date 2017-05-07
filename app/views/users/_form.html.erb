@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -24,6 +24,11 @@
   <div class="field">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
 
   <div class="actions">
