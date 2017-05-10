@@ -2,5 +2,12 @@
 
 <p>Vegan Homies is a website intended to allow vegans to make friends with other vegans in real life with location based search.</p>
 
-
-
+<% if user = User.find_by(id: session[:user_id]) %>
+	<h2>Does <%= user.name %> have a profile?</h2>
+	<% if profile = Profile.find_by(user_id: user.id) %>
+		Yes.
+	<% else %>
+		No.
+		<h2>Please create your profile <%= link_to 'Create profile', new_profile_path %></h2>
+	<% end %>
+<% end %> 			

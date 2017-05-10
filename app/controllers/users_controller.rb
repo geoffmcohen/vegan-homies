@@ -29,8 +29,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+      	
+      	# Create a new session so the user doesn't have to login again
+      	session[:user_id] = @user.id
+      	
+        format.html { redirect_to welcome_index_url, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }               
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

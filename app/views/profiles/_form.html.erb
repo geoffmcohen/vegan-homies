@@ -26,16 +26,8 @@
     <%= f.text_field :looking_to_meet %>
   </div>
 
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
+	<%= f.hidden_field :user_id %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

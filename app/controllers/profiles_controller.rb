@@ -15,6 +15,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    
+    # Set user id to that of the user logged in
+    @profile.user_id = session[:user_id]
   end
 
   # GET /profiles/1/edit
@@ -26,6 +29,8 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
 
+    # TODO: determine if profile should be active and set active flag
+    
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
