@@ -6,6 +6,8 @@
 	<h2>Does <%= user.name %> have a profile?</h2>
 	<% if profile = Profile.find_by(user_id: user.id) %>
 		Yes.
+		<h2>Edit your profile <%= link_to 'Edit profile', edit_profile_path(profile) %></h2>
+		<h2>View your profile <%= link_to 'View profile', profile_path(profile) %></h2>
 	<% else %>
 		No.
 		<h2>Please create your profile <%= link_to 'Create profile', new_profile_path %></h2>

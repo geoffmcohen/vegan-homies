@@ -9,11 +9,19 @@
   </head>
 
   <% 
+  	# TODO: move this to a method in the application controller or a common library
+  
   	# Get the user and profile if they exist
 		if user = User.find_by(id: session[:user_id])
 			profile = Profile.find_by(user_id: session[:user_id])
+			if profile
+				display_name = profile.display_name
+			else
+				display_name = user.name
+			end
 		else
-			profile = nil	
+			profile = nil
+			display_name = nil
 		end
   %>
   
@@ -24,7 +32,7 @@
   		</div>
   		<div id="login-logout-signup">
 				<% if user %>                  
-					Hello <%= user.name %> <%= link_to "Log Out", logout_path, method: "delete" %> 
+					Hello <%= display_name %> <%= link_to "Log Out", logout_path, method: "delete" %> 
 				<% else %>
 					Not signed in <%= link_to "Log In", login_path %> / <%= link_to "Sign Up", signup_path %>
 				<% end %> 			
@@ -39,7 +47,7 @@
   				<li>FAQ</li>
   				<% if user %>
   					<% if profile %>
-  						<li>Edit / View Profile</li>  						
+  						<li><%= link_to 'Edit', edit_profile_path(profile) %> / <%= link_to 'View Profile', profile_path(profile) %></li>  						
   					<% else %>
   						<li><%= link_to 'Create Profile', new_profile_path %></li>
   					<% end %>
