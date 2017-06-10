@@ -25,5 +25,15 @@
   <%= @profile.user %>
 </p>
 
+<p>
+  <strong>Location:</strong>
+  <%= @profile.location %>
+</p>
+
+<p>
+  <strong>Image URL:</strong>
+  <%= @profile.image_url %>
+</p>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
