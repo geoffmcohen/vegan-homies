@@ -12,17 +12,21 @@
   	# TODO: move this to a method in the application controller or a common library
   
   	# Get the user and profile if they exist
-		if user = User.find_by(id: session[:user_id])
-			profile = Profile.find_by(user_id: session[:user_id])
-			if profile
-				display_name = profile.display_name
-			else
-				display_name = user.name
-			end
-		else
-			profile = nil
-			display_name = nil
-		end
+		# if user = User.find_by(id: session[:user_id])
+		# 	profile = Profile.find_by(user_id: session[:user_id])
+		# 	if profile
+		# 		display_name = profile.display_name
+		# 	else
+		# 		display_name = user.name
+		# 	end
+		# else
+		# 	profile = nil
+		# 	display_name = nil
+		# end
+		
+		#display_name = get_display_name
+		#user = get_user
+		#profile = get_profile
   %>
   
   <body class="<%= controller.controller_name %>">
@@ -31,8 +35,8 @@
   			Vegan Homies!!!
   		</div>
   		<div id="login-logout-signup">
-				<% if user %>                  
-					Hello <%= display_name %> <%= link_to "Log Out", logout_path, method: "delete" %> 
+				<% if get_user %>                  
+					Hello <%= get_display_name %> <%= link_to "Log Out", logout_path, method: "delete" %> 
 				<% else %>
 					Not signed in <%= link_to "Log In", login_path %> / <%= link_to "Sign Up", signup_path %>
 				<% end %> 			
@@ -45,8 +49,8 @@
   				<li><%= link_to "Home", welcome_index_path %></li>
   				<li>About</li>
   				<li>FAQ</li>
-  				<% if user %>
-  					<% if profile %>
+  				<% if get_user %>
+  					<% if profile = get_profile %>
   						<li><%= link_to 'Edit', edit_profile_path(profile) %> / <%= link_to 'View Profile', profile_path(profile) %></li>  						
   					<% else %>
   						<li><%= link_to 'Create Profile', new_profile_path %></li>

@@ -5,14 +5,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # Try to get the user by name
-  	user = User.find_by(name: params[:name].downcase!)
-  	
-  	# Otherwise try to get the user by email
-  	if !user 
-  	  user = User.find_by(email: params[:name].downcase!)
+    
+    # Get lowercase of the username or email entered
+    username = params[:name].downcase;
+    
+    # Try to get the user by name or email if that doesn't work
+  	if !user = User.find_by(name: username)
+  	  user = User.find_by(email: username)
   	end
   	
+    # Try to authenticate the username with the password provided
   	if user.try(:authenticate, params[:password])
   		session[:user_id] = user.id
   		redirect_to welcome_index_url
