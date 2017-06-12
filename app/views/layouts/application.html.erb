@@ -8,27 +8,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% 
-  	# TODO: move this to a method in the application controller or a common library
-  
-  	# Get the user and profile if they exist
-		# if user = User.find_by(id: session[:user_id])
-		# 	profile = Profile.find_by(user_id: session[:user_id])
-		# 	if profile
-		# 		display_name = profile.display_name
-		# 	else
-		# 		display_name = user.name
-		# 	end
-		# else
-		# 	profile = nil
-		# 	display_name = nil
-		# end
-		
-		#display_name = get_display_name
-		#user = get_user
-		#profile = get_profile
-  %>
-  
   <body class="<%= controller.controller_name %>">
   	<div id="banner">
   		<div id="logo">
