@@ -8,7 +8,7 @@ module ApplicationHelper
   # Returns the profile of the curent user or nil if none exists
   def get_profile
     if user = get_user
-      profile = Profile.find_by(user_id: session[:user_id])
+      profile = Profile.find_by(user_id: user.id)
     else
       profile = nil
     end
