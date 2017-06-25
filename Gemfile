@@ -50,3 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use geocoder to poower location based searches
 gem  'geocoder'
+
+# Use country_select for a dropdown of countries
+gem 'country_select'
